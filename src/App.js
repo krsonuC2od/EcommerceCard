@@ -1,8 +1,8 @@
-import CartItem from './Component/CartItem'
+import Cart from './Component/Cart'
 function App() {
   return (
     <div className="App">
-     <CartItem />
+     <Cart/>
     </div>
   );
 }
