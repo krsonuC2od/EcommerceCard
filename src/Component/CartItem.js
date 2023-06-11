@@ -1,18 +1,7 @@
 import React from "react";
 import "./CartItem.css";
 class CardItem extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      price: 999,
-      title: "phone1",
-      qty: 1,
-      img: "",
-    };
-    //binding this with state
-    this.increaseQuantity = this.increaseQuantity.bind(this);
-    this.decreaseQuantity = this.decreaseQuantity.bind(this);
-  }
+ 
   // this function increase qty of product in cart
   increaseQuantity() {
     /*
@@ -48,7 +37,8 @@ class CardItem extends React.Component {
 
 
   render() {
-    const { price, title, qty } = this.state;
+    
+    const { price, title, qty } = this.props.product;
     return (
       <>
         <div className="cart-item">
@@ -65,13 +55,13 @@ class CardItem extends React.Component {
                 src="https://cdn-icons-png.flaticon.com/128/5702/5702451.png"
                 className="action-icons"
                 alt="increase"
-                onClick={this.increaseQuantity}
+                 onClick={ () => this.props.onIncreaseQuantity(this.props.product)}
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/128/992/992683.png"
                 className="action-icons"
                 alt="decrease"
-                onClick={this.decreaseQuantity}
+                onClick={() => this.props.onDecreaseQuantity(this.props.product)}
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/128/1214/1214428.png"
